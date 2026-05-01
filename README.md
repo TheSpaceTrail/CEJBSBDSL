@@ -8,7 +8,7 @@ Instead, we chose to invent a DSL specifically for this game, we spent so much t
 
 To learn to use the language read [CEJBSBDSL.spec.md](CEJBSBDSL.spec.md). You are free to make your own projects in it! Although I would not wish that on my worst enemy.
 
-If you want to look at some beatiful syntax sugar take a look at our modified implementation for our game [here](https://github.com/TheSpaceTrail/TheSpaceTrail/src_tst/storyline.json) (*because our language is so deeply terrible, we had to write a modified shim for the parser so that we could add functionality, so you need to run it through the parser file).
+If you want to look at some beatiful syntax sugar take a look at our modified implementation for our game [here](https://github.com/TheSpaceTrail/TheSpaceTrail/blob/main/src_tst/storyline.json) (*because our language is so deeply terrible, we had to write a modified shim for the parser so that we could add functionality, so you need to run it through the parser file).
 
 The entire CEJBSBDSL language can be accessed in [CEJBSBDSL.py](/CEJBSBDSL.py).
 ```
