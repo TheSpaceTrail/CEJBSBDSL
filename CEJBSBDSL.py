@@ -42,8 +42,8 @@ parser.add_argument("-f", "--file", help="path to script")
 parser.add_argument("-e", "--entry-point", default="init", required=False, help="program entry point (default: \"init\")")
 parser.add_argument("-s", "--seed", default="42", required=False, help="random seed (default: 42, \"random\" for random)")
 parser.add_argument("-v", "--version", action="version", version=CEJBSBDSL_VERSION)
-parser.add_argument("-dw", "--disable-warnings", action='store_true', help="does not print warnings")
-parser.add_argument("-de", "--disable-errors", action='store_true', help="does not print errors and exits quietly and successfully")
+parser.add_argument("-dw", "--disable-warnings", action='store_true', help="disables warnings")
+parser.add_argument("-de", "--disable-errors", action='store_true', help="disables errors and exits quietly and successfully")
 
 args = parser.parse_args()
 
