@@ -44,7 +44,7 @@ options:
   -s, --seed SEED       random seed (default: 42, "random" for random)
   -v, --version         show program's version number and exit
   -dw, --disable-warnings
-                        does not print warnings
+                        disables warnings
   -de, --disable-errors
-                        does not print errors and exits quietly and successfully
+                        disables errors and exits quietly and successfully
 ```
