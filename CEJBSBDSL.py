@@ -219,13 +219,10 @@ def run_sequence(sequence, database):
 
                 elif split_sequence[0] == "!if": # If statement proxy
 
-
                     if split_sequence[2] in comp_operators.keys():
 
                         comp1 = to_float_if_float(get_variable(split_sequence[1], database))
                         comp2 = to_float_if_float(get_variable(split_sequence[3], database))
-
-                        print(comp1, comp2)
 
                         if comp_operators[split_sequence[2]](comp1, comp2):
 
