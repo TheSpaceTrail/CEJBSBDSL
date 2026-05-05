@@ -47,9 +47,9 @@ Input is done using `?`.
 ```md
 {
     "init": [
-        "What is your name?> ",
-        "What is your quest?> ",
-        "What is the airspeed velocity of an unladen swallow??> ",
+        "?What is your name?> ",
+        "?What is your quest?> ",
+        "?What is the airspeed velocity of an unladen swallow??> ",
         "# Well, you have to know these things when you're king, you know?"
     ]
 }
