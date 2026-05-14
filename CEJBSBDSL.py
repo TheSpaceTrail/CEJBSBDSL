@@ -246,7 +246,7 @@ def run_sequence(sequence, database):
                     sleep_time = to_float_if_float(get_variable(split_sequence[1], database))
                     if type(sleep_time) != float:
                         error(f"Sleep error; value \"{sleep_time}\" not a float.", "2")
-                    time.sleep()
+                    time.sleep(sleep_time)
 
                 else:
 
