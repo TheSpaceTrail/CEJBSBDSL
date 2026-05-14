@@ -132,17 +132,11 @@ def run_sequence(sequence, database):
 
     idx = 0
 
-    # Loop continuously until broken
-    while True:
-
-        if len(sequence) < idx + 1: 
-            break # Make sure it does not go forever
+    # Loop continuously until broken or the current index is out of range of the sequence
+    while not (len(sequence) < idx + 1): # probably should be !(idx > len(sequence)) but this works so we're keeping it
 
         # Split input for parsing
-        if " " in sequence[idx]:
-            split_sequence = sequence[idx].split(" ")
-        else:
-            split_sequence = [sequence[idx]]
+        split_sequence = sequence[idx].split(" ")
 
         # Commands
         try:
