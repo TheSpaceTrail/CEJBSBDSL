@@ -103,6 +103,7 @@ def get_variable(test, database):
         else:
 
             error(f"Variable \"{test}\" not found!", "5")
+            return False
     
     else:
 
@@ -128,15 +129,17 @@ def prompt(text, choices, case_sensitive=False):
 
 # Run a sequence from storyline.json, run any commands that occur, ignore comments, 
 # and auto-print anything that does not start with a special character
-def run_sequence(sequence, database):
+def run_sequence(sequence, prev_sequence, database):
 
     idx = 0
+
+    database["prev_sequence"] = prev_sequence
 
     # Loop continuously until broken or the current index is out of range of the sequence
     while not (len(sequence) < idx + 1): # probably should be !(idx > len(sequence)) but this works so we're keeping it
 
         # Split input for parsing
-        split_sequence = sequence[idx].split(" ")
+        split_sequence = sequence[idx].split(" ")        
 
         # Commands
         try:
@@ -158,6 +161,9 @@ def run_sequence(sequence, database):
                             error(f"Error in jump switch: key \"{v}\" not found.", "8")
                         
                         else:
+                            for key, value in sequence[idx+1].items():
+                                if value.startswith("$") and get_variable(value, database):
+                                    sequence[idx+1][key] = get_variable(value, database)
 
                             return sequence[idx+1]["\n"]
 
@@ -289,9 +295,11 @@ def check_state(state, origin_sequence):
 def execute_parse(origin_sequence, database):
 
     check_state(args.entry_point, origin_sequence)
+    
+    prev_state = None
 
     # Run origin sequence, and it continues until the game is done
-    state = run_sequence(origin_sequence[args.entry_point], database)
+    state = run_sequence(origin_sequence[args.entry_point], prev_state, database)
 
     new_state = None
 
@@ -299,7 +307,9 @@ def execute_parse(origin_sequence, database):
 
         check_state(state, origin_sequence)
 
-        new_state = run_sequence(origin_sequence[state], database)
+        new_state = run_sequence(origin_sequence[state], prev_state, database)
+
+        prev_state = state
 
         state = new_state
 
