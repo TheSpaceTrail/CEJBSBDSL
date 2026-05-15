@@ -85,6 +85,7 @@ Not a comment...
 #### Special Values
 
 `$output` - Reserved for the output of terminal-input functions. Can be overwritten.
+`$prev_sequence` - contains the name of the previous sequence. Can be overwritten but is reset when a sequence is jumped.
 
 
 #### Data Commands
